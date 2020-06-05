@@ -2,10 +2,15 @@ package com.modestack.ahmed.models;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -29,6 +34,9 @@ public class UserDto implements Serializable {
 	private String email;
 	@Column(name = "user_address")
 	private String address;
+	
+	@OneToMany
+	private ArticleDto article;
 
 	public UserDto() {
 		System.out.println(this.getClass().getName() + " Constructor called...");
@@ -80,6 +88,14 @@ public class UserDto implements Serializable {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public ArticleDto getArticle() {
+		return article;
+	}
+
+	public void setArticle(ArticleDto article) {
+		this.article = article;
 	}
 
 	@Override
