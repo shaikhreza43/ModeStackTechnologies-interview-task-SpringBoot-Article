@@ -35,7 +35,6 @@ public class UserDto implements Serializable {
 	@Column(name = "user_address")
 	private String address;
 	
-	@OneToMany
 	private ArticleDto article;
 
 	public UserDto() {

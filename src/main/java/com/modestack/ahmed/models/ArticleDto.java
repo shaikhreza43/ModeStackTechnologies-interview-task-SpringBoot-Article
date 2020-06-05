@@ -30,7 +30,7 @@ public class ArticleDto implements Serializable {
 	@Column(name = "article_author")
 	private String author;
 	
-	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL,mappedBy="article")
+	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn(name="user_id")
 	private UserDto user;
 
